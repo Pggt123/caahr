@@ -2,8 +2,8 @@ radio.onReceivedNumber(function (receivedNumber) {
 	
 })
 input.onButtonPressed(Button.A, function () {
-    maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 255)
-    maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CW, 255)
+    maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 500)
+    maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CW, 500)
 })
 input.onButtonPressed(Button.B, function () {
     maqueen.motorStop(maqueen.Motors.All)
