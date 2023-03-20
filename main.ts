@@ -17,8 +17,9 @@ radio.setGroup(35)
 let color = 0
 basic.forever(function () {
     for (let index = 0; index < 255; index++) {
-        color += randint(0, 255)
-        strip.showColor(neopixel.rgb(color, color, color))
+        color += 1
+        strip.showColor(neopixel.rgb(randint(0, 255), randint(0, 255), randint(0, 255)))
         strip.show()
+        basic.pause(200)
     }
 })
