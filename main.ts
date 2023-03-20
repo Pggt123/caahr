@@ -2,8 +2,8 @@ radio.onReceivedNumber(function (receivedNumber) {
 	
 })
 input.onButtonPressed(Button.A, function () {
-    maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 1500)
-    maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CW, 1500)
+    maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 255)
+    maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CCW, 255)
 })
 input.onButtonPressed(Button.B, function () {
     maqueen.motorStop(maqueen.Motors.All)
@@ -14,7 +14,7 @@ let color = 0
 basic.forever(function () {
     for (let index = 0; index < 255; index++) {
         color += 1
-        strip.showColor(neopixel.rgb(color, 0, 0))
+        strip.showColor(neopixel.rgb(0, color, 0))
         strip.show()
     }
 })
