@@ -12,13 +12,12 @@ input.onButtonPressed(Button.B, function () {
     maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOff)
     maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOff)
 })
-let color = 0
 let strip = neopixel.create(DigitalPin.P15, 4, NeoPixelMode.RGB)
 radio.setGroup(35)
+let color = 0
 basic.forever(function () {
-    color = randint(0, 255)
     for (let index = 0; index < 255; index++) {
-        color += 1
+        color += randint(0, 255)
         strip.showColor(neopixel.rgb(color, color, color))
         strip.show()
     }
