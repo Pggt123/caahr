@@ -1,13 +1,13 @@
-radio.onReceivedNumber(function (receivedNumber) {
-    if (receivedNumber == 35) {
+input.onButtonPressed(Button.A, function () {
+	
+})
+radio.onReceivedString(function (receivedString) {
+    if (receivedString == "Hola") {
         maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 255)
         maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CCW, 255)
         maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOn)
         maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOn)
     }
-})
-input.onButtonPressed(Button.A, function () {
-	
 })
 input.onButtonPressed(Button.B, function () {
     bucle = 0
