@@ -3,6 +3,7 @@ input.onButtonPressed(Button.A, function () {
     strip.showColor(neopixel.rgb(0, 255, 0))
     strip.show()
     maqueen.motorStop(maqueen.Motors.All)
+    basic.showString("REBELION!")
 })
 radio.onReceivedString(function (receivedString) {
     if (receivedString == "Hola") {
