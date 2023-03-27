@@ -7,13 +7,14 @@ radio.onReceivedString(function (receivedString) {
         maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CCW, 255)
         maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOn)
         maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOn)
+    } else {
+        if (receivedString == "Adios") {
+            bucle = 0
+            maqueen.motorStop(maqueen.Motors.All)
+            maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOff)
+            maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOff)
+        }
     }
-})
-input.onButtonPressed(Button.B, function () {
-    bucle = 0
-    maqueen.motorStop(maqueen.Motors.All)
-    maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOff)
-    maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOff)
 })
 let bucle = 0
 let strip = neopixel.create(DigitalPin.P15, 4, NeoPixelMode.RGB)
