@@ -1,5 +1,7 @@
 input.onButtonPressed(Button.A, function () {
-	
+    radio.sendString("Adios")
+    strip.showColor(neopixel.rgb(0, 255, 0))
+    strip.show()
 })
 radio.onReceivedString(function (receivedString) {
     if (receivedString == "Hola") {
