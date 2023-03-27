@@ -2,6 +2,7 @@ input.onButtonPressed(Button.A, function () {
     radio.sendString("Adios")
     strip.showColor(neopixel.rgb(0, 255, 0))
     strip.show()
+    maqueen.motorStop(maqueen.Motors.All)
 })
 radio.onReceivedString(function (receivedString) {
     if (receivedString == "Hola") {
