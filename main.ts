@@ -3,7 +3,7 @@ input.onButtonPressed(Button.A, function () {
     strip.showColor(neopixel.rgb(0, 255, 0))
     strip.show()
     maqueen.motorStop(maqueen.Motors.All)
-    basic.showString("REBELION!")
+    basic.showString("REBELION")
     maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOn)
     maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOn)
 })
@@ -15,6 +15,8 @@ radio.onReceivedString(function (receivedString) {
         maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOff)
         strip.showColor(neopixel.rgb(255, 0, 0))
         strip.show()
+    } else if (receivedString == "Temperatura") {
+        basic.showString("" + (input.temperature()))
     } else {
         if (receivedString == "Adios") {
             bucle = 0
@@ -32,6 +34,3 @@ strip = neopixel.create(DigitalPin.P15, 4, NeoPixelMode.RGB)
 radio.setGroup(35)
 let color = 0
 bucle = 0
-basic.forever(function () {
-	
-})
