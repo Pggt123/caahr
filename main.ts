@@ -1,5 +1,5 @@
 input.onButtonPressed(Button.A, function () {
-    radio.sendString("Adios")
+    radio.sendString("parar")
     strip.showColor(neopixel.rgb(0, 255, 0))
     strip.show()
     maqueen.motorStop(maqueen.Motors.All)
@@ -8,17 +8,17 @@ input.onButtonPressed(Button.A, function () {
     maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOn)
 })
 radio.onReceivedString(function (receivedString) {
-    if (receivedString == "Hola") {
+    if (receivedString == "moverse") {
         maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 255)
         maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CCW, 255)
         maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOff)
         maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOff)
         strip.showColor(neopixel.rgb(255, 0, 0))
         strip.show()
-    } else if (receivedString == "Temperatura") {
+    } else if (receivedString == "temperatura") {
         basic.showString("" + (input.temperature()))
     } else {
-        if (receivedString == "Adios") {
+        if (receivedString == "parar") {
             bucle = 0
             maqueen.motorStop(maqueen.Motors.All)
             maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOff)
