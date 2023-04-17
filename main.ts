@@ -1,6 +1,6 @@
 input.onButtonPressed(Button.A, function () {
     radio.sendString("parar")
-    strip.showColor(neopixel.rgb(255, 236, 0))
+    strip.showColor(neopixel.rgb(255, 200, 0))
     strip.show()
     maqueen.motorStop(maqueen.Motors.All)
     basic.showString("REBELION")
