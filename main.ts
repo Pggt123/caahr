@@ -18,7 +18,7 @@ radio.onReceivedString(function (receivedString) {
     } else if (receivedString == "temperatura") {
         basic.showString("" + (input.temperature()))
     } else {
-        if (receivedString == "parar") {
+        if (receivedString == "moverse") {
             bucle = 0
             maqueen.motorStop(maqueen.Motors.All)
             maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOff)
