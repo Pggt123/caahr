@@ -13,8 +13,9 @@ radio.onReceivedString(function (receivedString) {
         maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CCW, 255)
         maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOff)
         maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOff)
-        while (true) {
+        while (receivedString == "moverse") {
             strip.showColor(neopixel.rgb(255, 0, 0))
+            strip.show()
             strip.showColor(neopixel.rgb(0, 255, 0))
             strip.show()
         }
@@ -29,6 +30,18 @@ radio.onReceivedString(function (receivedString) {
             strip.showColor(neopixel.rgb(0, 0, 0))
             strip.show()
         }
+    }
+})
+input.onButtonPressed(Button.B, function () {
+    maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 255)
+    maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CCW, 255)
+    maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOff)
+    maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOff)
+    while (receivedString == "moverse") {
+        strip.showColor(neopixel.rgb(255, 0, 0))
+        strip.show()
+        strip.showColor(neopixel.rgb(0, 255, 0))
+        strip.show()
     }
 })
 let bucle = 0
