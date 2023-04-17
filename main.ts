@@ -1,5 +1,6 @@
 input.onButtonPressed(Button.A, function () {
     radio.sendString("parar")
+    strip.clear()
     strip.showColor(neopixel.rgb(255, 200, 0))
     strip.show()
     maqueen.motorStop(maqueen.Motors.All)
@@ -13,7 +14,7 @@ radio.onReceivedString(function (receivedString) {
         maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CCW, 255)
         maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOff)
         maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOff)
-        while (receivedString == "moverse") {
+        for (let index = 0; index < 9999999; index++) {
             strip.showColor(neopixel.rgb(255, 0, 0))
             strip.show()
             strip.showColor(neopixel.rgb(0, 255, 0))
@@ -27,21 +28,8 @@ radio.onReceivedString(function (receivedString) {
             maqueen.motorStop(maqueen.Motors.All)
             maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOff)
             maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOff)
-            strip.showColor(neopixel.rgb(0, 0, 0))
-            strip.show()
+            strip.clear()
         }
-    }
-})
-input.onButtonPressed(Button.B, function () {
-    maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 255)
-    maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CCW, 255)
-    maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOff)
-    maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOff)
-    while (receivedString == "moverse") {
-        strip.showColor(neopixel.rgb(255, 0, 0))
-        strip.show()
-        strip.showColor(neopixel.rgb(0, 255, 0))
-        strip.show()
     }
 })
 let bucle = 0
