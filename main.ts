@@ -10,11 +10,12 @@ input.onButtonPressed(Button.A, function () {
 })
 radio.onReceivedString(function (receivedString) {
     if (receivedString == "moverse") {
+        Led = 1
         maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 255)
         maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CCW, 255)
         maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOff)
         maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOff)
-        for (let index = 0; index < 9999999; index++) {
+        while (Led == "1") {
             strip.showColor(neopixel.rgb(255, 0, 0))
             strip.show()
             strip.showColor(neopixel.rgb(0, 255, 0))
@@ -32,6 +33,7 @@ radio.onReceivedString(function (receivedString) {
         }
     }
 })
+let Led = 0
 let bucle = 0
 let strip: neopixel.Strip = null
 strip = neopixel.create(DigitalPin.P15, 4, NeoPixelMode.RGB)
